@@ -22,7 +22,7 @@ export default DS.Model.extend({
         return 'pending';
       }
     }
-  }.property('closed_date')
+  }.property('closed_date'),
 
   closed: function() {
     if (this.get('status') === 'closed') {
