@@ -7,7 +7,7 @@ export default DS.Model.extend({
   created_at:   DS.attr('date'),
   closed_date:  DS.attr('date'),
   patient_name: DS.attr('string'),
-  patient_guid: DS.attr('string')
+  patient_guid: DS.attr('string'),
 
   status: function() {
     if (this.get('closed_date')) {
