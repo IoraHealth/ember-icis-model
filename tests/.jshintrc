@@ -1,5 +1,14 @@
 {
   "predef": [
+    "mocha",
+    "chai",
+    "expect",
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach",
     "document",
     "window",
     "location",
@@ -44,7 +53,8 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+    "moment"
   ],
   "node": false,
   "browser": false,
