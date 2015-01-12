@@ -9,7 +9,7 @@ export default DS.Model.extend({
   patient_name: DS.attr('string'),
   patient_guid: DS.attr('string')
 
-  status: function() ({
+  status: function() {
     if (this.get('closed_date')) {
       return 'closed';
     } else {
@@ -22,13 +22,13 @@ export default DS.Model.extend({
         return 'pending';
       }
     }
-  }).property('closed_date')
+  }.property('closed_date')
 
-  closed: function() ({
+  closed: function() {
     if (this.get('status') === 'closed') {
       return true;
     } else {
       return false;
     }
-  }).property('closed_date')
+  }.property('closed_date')
 })
