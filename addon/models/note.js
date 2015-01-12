@@ -31,4 +31,4 @@ export default DS.Model.extend({
       return false;
     }
   }.property('closed_date')
-})
+});
