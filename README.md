@@ -7,12 +7,8 @@ and also configuring the specific host/environment for your adapters.
 
 ## Installation
 
-In your Ember-CLI app:
-```js
-// package.json
-"devDependencies" :{
-  "ember-icis-model": "git+ssh://github.com:iorahealth/ember-icis-model.git#0.1.0"
-}
+```sh
+npm install --save-dev ember-icis-model
 ```
 
 For each adapter:
@@ -25,6 +21,7 @@ export default practice.reopen({
   host: config.app.staff_url
 });
 ```
+
 
 ## Running Tests
 
@@ -44,7 +41,7 @@ In the CLI app you are building first lower the requirement for the widget lib:
 ```js
 //package.json
 "devDependencies": {
-  //"ember-icis-model": "git+ssh://git@github.com:iorahealth/ember-icis-model.git#0.1.0"
+  //"ember-icis-model": "~ 0.1.0"
   "ember-icis-model": "*"
 }
 ```
@@ -58,3 +55,4 @@ Then in the CLI directory, link the local version of this lib:
 ```sh
 npm link ember-icis-model
 ```
+
