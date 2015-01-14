@@ -1,15 +1,19 @@
-import DS from "ember-data";
 import Ember from 'ember';
+import DS from 'ember-data';
 
 export default DS.RESTAdapter.extend({
   host: "https://staging.icisapp.com",
-  namespace: "api/practices/v2",
+  namespace: "api/patients/v3",
   token: Ember.computed.alias('accessTokenWrapper.token'),
 
   headers: function() {
-    console.debug(this.get('accessTokenWrapper'));
     return {
       'AUTHORIZATION': 'Bearer ' + this.get('token')
     };
-  }.property('token')
+  }.property('token'),
+
+  pathForType: function() {
+    return "patients/actions/autocomplete";
+  }
 });
+
