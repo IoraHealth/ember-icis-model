@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.2.0
+* Added StaffMEmber model.
+
 ## 0.1.0
 * Added PatientAutocomplete model
 * Added AccessToken Service. This service allows us to inject an access token
