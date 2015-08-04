@@ -1,7 +1,7 @@
 /* global localStorage */
 import Ember from 'ember';
 
-export default Ember.Object.extend({
+export default Ember.Service.extend({
   token: function() {
     return localStorage.getItem('access_token');
   }.property().volatile(),
