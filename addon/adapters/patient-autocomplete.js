@@ -1,19 +1,11 @@
-import Ember from 'ember';
 import DS from 'ember-data';
+import TokenAuthAdapter from "ember-icis-model/mixins/token-auth-adapter";
 
-export default DS.RESTAdapter.extend({
+export default DS.RESTAdapter.extend(TokenAuthAdapter, {
   host: "https://staging.icisapp.com",
   namespace: "api/patients/v3",
-  token: Ember.computed.alias('accessTokenWrapper.token'),
-
-  headers: function() {
-    return {
-      'AUTHORIZATION': 'Bearer ' + this.get('token')
-    };
-  }.property('token'),
 
   pathForType: function() {
     return "patients/actions/autocomplete";
   }
 });
-
