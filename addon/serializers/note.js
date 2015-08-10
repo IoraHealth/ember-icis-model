@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-  isNewSerializerAPI: false,
+  isNewSerializerAPI: true,
   attrs: {
     issue_name:   { serialize: false },
     created_at:   { serialize: false },
