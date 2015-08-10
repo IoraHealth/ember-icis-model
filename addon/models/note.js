@@ -8,6 +8,9 @@ export default DS.Model.extend({
   closed_date:  DS.attr('date'),
   patient_name: DS.attr('string'),
   patient_guid: DS.attr('string'),
+  issues:       DS.hasMany('issue'),
+  createdBy:    DS.belongsTo('currentPracticeUser'),
+  patient:      DS.belongsTo('patient'),
 
   status: function() {
     if (this.get('closed_date')) {
@@ -15,7 +18,7 @@ export default DS.Model.extend({
     } else {
       var createdTime = moment(this.get('created_at'));
       var yesterday =   moment().subtract(24, 'hours');
-      
+
       if (createdTime < yesterday) {
         return 'overdue';
       } else {
