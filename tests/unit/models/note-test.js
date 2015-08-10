@@ -1,17 +1,26 @@
 /* jshint expr:true */
-import {
-  describeModel,
-  it
-} from 'ember-mocha';
+import Ember from 'ember';
+import { expect } from 'chai';
+import { describeModel, it } from 'ember-mocha';
+import { beforeEach } from 'mocha';
 
 describeModel(
   'note',
   'Note',
   {
-    // Specify the other units that are required for this test.
-      needs: []
+    needs: [
+      'model:issue',
+      'model:patient',
+      'model:currentPracticeUser',
+      'model:practice'
+    ]
   },
+
   function() {
+    beforeEach(function() {
+      this.Note = this.store().modelFor('note');
+    });
+
     describe('#status', function() {
       var model;
 
@@ -68,6 +77,27 @@ describeModel(
           expect(model.get('closed')).to.be.false;
         });
       });
+    });
+
+    it('has a patient association', function() {
+      var relationship = Ember.get(this.Note, 'relationshipsByName').get('patient');
+
+      expect(relationship.key).to.eql('patient');
+      expect(relationship.kind).to.eql('belongsTo');
+    });
+
+    it('has a createdBy association', function() {
+      var relationship = Ember.get(this.Note, 'relationshipsByName').get('createdBy');
+
+      expect(relationship.key).to.eql('createdBy');
+      expect(relationship.kind).to.eql('belongsTo');
+    });
+
+    it('has a issues association', function() {
+      var relationship = Ember.get(this.Note, 'relationshipsByName').get('issues');
+
+      expect(relationship.key).to.eql('issues');
+      expect(relationship.kind).to.eql('hasMany');
     });
   }
 );

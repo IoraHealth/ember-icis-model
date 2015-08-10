@@ -1,0 +1,1 @@
+export { default } from 'ember-icis-model/models/issue';
