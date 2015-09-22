@@ -1,1 +1,3 @@
-export { default } from 'ember-icis-model/models/issue';
+import Issue from 'ember-icis-model/models/issue';
+
+export default Issue;

@@ -1,1 +1,3 @@
-export { default } from 'ember-icis-model/models/note';
+import Note from 'ember-icis-model/models/note';
+
+export default Note;

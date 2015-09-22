@@ -1,1 +1,3 @@
-export { default } from 'ember-icis-model/models/current-practice-user';
+import CurrentPracticeUser from 'ember-icis-model/models/current-practice-user';
+
+export default CurrentPracticeUser;

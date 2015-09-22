@@ -1,1 +1,3 @@
-export { default } from 'ember-icis-model/serializers/patient';
+import Patient from 'ember-icis-model/serializers/patient';
+
+export default Patient;
