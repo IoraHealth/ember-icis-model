@@ -11,8 +11,9 @@ describeModel(
       'serializer:note',
       'model:issue',
       'model:patient',
-      'model:currentPracticeUser',
-      'model:practice'
+      'model:current-practice-user',
+      'model:practice',
+      'model:staff-member'
     ]
   },
 

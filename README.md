@@ -1,7 +1,7 @@
 # Ember-icis-model
 
 This Ember addon gives you access to all the Ember models exposed via our
-services directly to your Ember-CLI app. This addon assumes that you 
+services directly to your Ember-CLI app. This addon assumes that you
 are setting an access_token service somewhere (probably in your routers)
 and also configuring the specific host/environment for your adapters.
 
@@ -25,6 +25,8 @@ export default practice.reopen({
 
 ## Running Tests
 
+* `npm install`
+* `bower install`
 * `ember test`
 * `ember test --server`
 

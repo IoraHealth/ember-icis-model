@@ -11,8 +11,9 @@ describeModel(
     needs: [
       'model:issue',
       'model:patient',
-      'model:currentPracticeUser',
-      'model:practice'
+      'model:current-practice-user',
+      'model:practice',
+      'model:staff-member'
     ]
   },
 
@@ -90,6 +91,13 @@ describeModel(
       var relationship = Ember.get(this.Note, 'relationshipsByName').get('createdBy');
 
       expect(relationship.key).to.eql('createdBy');
+      expect(relationship.kind).to.eql('belongsTo');
+    });
+
+    it('has a signedBy association', function() {
+      var relationship = Ember.get(this.Note, 'relationshipsByName').get('signedBy');
+
+      expect(relationship.key).to.eql('signedBy');
       expect(relationship.kind).to.eql('belongsTo');
     });
 
