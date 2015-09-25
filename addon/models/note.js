@@ -15,6 +15,8 @@ export default DS.Model.extend({
   issues:       DS.hasMany('issue'),
   createdBy:    DS.belongsTo('currentPracticeUser'),
   patient:      DS.belongsTo('patient'),
+  touch_point_type:     DS.attr('string'),
+  touch_point_sub_type: DS.attr('string'),
 
   status: function() {
     if (this.get('closed_date')) {

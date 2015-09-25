@@ -10,6 +10,8 @@ export default DS.RESTSerializer.extend({
     closed_date:  { serialize: false },
     createdBy:    { key: 'created_by_uid' },
     issues:       { key: 'issue_ids' },
-    patient:      { key: 'patient_guid' }
+    patient:      { key: 'patient_guid' },
+    touch_point_type:     {},
+    touch_point_sub_type: {}
   }
 });
