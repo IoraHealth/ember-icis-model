@@ -11,6 +11,7 @@ export default DS.Model.extend({
   pin:          DS.attr('string'),
   signed:       DS.attr('boolean'),
   signed_at:    DS.attr('date'),
+  message_uid:  DS.attr('string'),
   signedBy:     DS.belongsTo('staffMember'),
   issues:       DS.hasMany('issue'),
   createdBy:    DS.belongsTo('currentPracticeUser'),
