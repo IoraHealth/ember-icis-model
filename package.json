@@ -1,6 +1,6 @@
 {
   "name": "ember-icis-model",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "All of ICIS's services in one handy model addon",
   "directories": {
     "doc": "doc",
@@ -18,7 +18,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "patricksrobertson",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.4.1",
