@@ -12,6 +12,7 @@ export default DS.RESTSerializer.extend({
     issues:       { key: 'issue_ids' },
     patient:      { key: 'patient_guid' },
     message_uid:          {},
+    touch_point_date:     {},
     touch_point_type:     {},
     touch_point_sub_type: {}
   }
