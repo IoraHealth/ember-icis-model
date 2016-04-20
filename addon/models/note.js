@@ -5,6 +5,7 @@ export default DS.Model.extend({
   issue_name:           DS.attr('string'),
   issue_id:             DS.attr('number'),
   created_at:           DS.attr('date'),
+  updated_at:           DS.attr('date'),
   closed_date:          DS.attr('date'),
   patient_name:         DS.attr('string'),
   patient_guid:         DS.attr('string'),
@@ -12,9 +13,10 @@ export default DS.Model.extend({
   signed:               DS.attr('boolean'),
   signed_at:            DS.attr('date'),
   message_uid:          DS.attr('string'),
-  signedBy:             DS.belongsTo('staffMember'),
   issues:               DS.hasMany('issue'),
-  createdBy:            DS.belongsTo('currentPracticeUser'),
+  updatedBy:            DS.belongsTo('staffMember', { async: true }),
+  createdBy:            DS.belongsTo('staffMember', { async: true }),
+  signedBy:             DS.belongsTo('staffMember', { async: true }),
   patient:              DS.belongsTo('patient'),
   touch_point_date:     DS.attr('date'),
   touch_point_type:     DS.attr('string'),
@@ -41,5 +43,10 @@ export default DS.Model.extend({
     } else {
       return false;
     }
-  }.property('closed_date')
+  }.property('closed_date'),
+
+  hasBeenUpdated: function() {
+    return this.get('created_at').valueOf() !== this.get('updated_at').valueOf();
+  }.property('created_at', 'updated_at'),
+
 });
