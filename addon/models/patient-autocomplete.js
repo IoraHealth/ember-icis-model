@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
   first_name: DS.attr('string'),
@@ -13,14 +14,22 @@ export default DS.Model.extend({
   }.property('dob'),
 
   fullName: function() {
-    var fullName = this.get('first_name');
-    if (this.get('nickname') !== "") {
-      fullName += ' "' + this.get('nickname') + '" ';
-    } else {
-      fullName += " ";
-    }
+    let nameParts = [];
+    [
+      'first_name', 'nickname',
+      'middle_name', 'last_name'
+    ].forEach((key) => {
+      const namePart = this.get(key);
+      if (Ember.isPresent(namePart)) {
+        if (key === 'nickname') {
+          nameParts.push(`"${namePart}"`);
+        } else {
+          nameParts.push(namePart);
+        }
+      }
+    });
 
-    fullName += this.get('middle_name') + " " + this.get('last_name') + " - " + this.get('prettyDob');
-    return fullName;
+    let fullName = nameParts.join(" ");
+    return `${fullName} - ${this.get('prettyDob')}`;
   }.property('first_name', 'last_name', 'nickname', 'middle_name', 'dob')
 });
