@@ -42,7 +42,7 @@ describeModel(
       var record = this.subject();
 
       Ember.run(function() {
-        var createdByUser = store.createRecord('currentPracticeUser',
+        var createdByUser = store.createRecord('staff-member',
                                                { id: 'someuserid' });
         record.set('createdBy', createdByUser);
       });

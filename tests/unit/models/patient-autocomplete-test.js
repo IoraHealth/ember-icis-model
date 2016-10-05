@@ -27,13 +27,61 @@ describeModel(
     describe("#fullName", function() {
       var model;
 
-      describe("has no nickname", function() {
+      describe("middle_name is empty string", function() {
+        beforeEach(function() {
+          model = this.subject({
+            first_name: "Gorbechev",
+            middle_name: "",
+            last_name: "Thunderhorse",
+            nickname: "Gorby",
+            prettyDob: "01/01/2000"
+          });
+        });
+
+        it("does not set the middle_name in the fullName", function() {
+          expect(model.get('fullName')).to.eq("Gorbechev \"Gorby\" Thunderhorse - 01/01/2000");
+        });
+      });
+
+      describe("middle_name is null", function() {
+        beforeEach(function() {
+          model = this.subject({
+            first_name: "Gorbechev",
+            middle_name: null,
+            last_name: "Thunderhorse",
+            nickname: "Gorby",
+            prettyDob: "01/01/2000"
+          });
+        });
+
+        it("does not set the middle_name in the fullName", function() {
+          expect(model.get('fullName')).to.eq("Gorbechev \"Gorby\" Thunderhorse - 01/01/2000");
+        });
+      });
+
+      describe("nickname is empty string", function() {
         beforeEach(function() {
           model = this.subject({
             first_name: "Gorbechev",
             middle_name: "Puff Puff",
             last_name: "Thunderhorse",
             nickname: "",
+            prettyDob: "01/01/2000"
+          });
+        });
+
+        it("does not set the nickname in the fullName", function() {
+          expect(model.get('fullName')).to.eq("Gorbechev Puff Puff Thunderhorse - 01/01/2000");
+        });
+      });
+
+      describe("nickname is null", function() {
+        beforeEach(function() {
+          model = this.subject({
+            first_name: "Gorbechev",
+            middle_name: "Puff Puff",
+            last_name: "Thunderhorse",
+            nickname: null,
             prettyDob: "01/01/2000"
           });
         });
