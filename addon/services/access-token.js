@@ -2,9 +2,9 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  token: function() {
+  token: Ember.computed(function() {
     return localStorage.getItem('access_token');
-  }.property().volatile(),
+  }).volatile(),
 
   setToken: function(token) {
     localStorage.setItem('access_token', token);

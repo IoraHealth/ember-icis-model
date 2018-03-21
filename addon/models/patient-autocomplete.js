@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import moment from 'moment';
 
 export default DS.Model.extend({
   first_name: DS.attr('string'),
@@ -9,11 +10,11 @@ export default DS.Model.extend({
   dob: DS.attr('date'),
   guid: DS.attr('string'),
 
-  prettyDob: function() {
+  prettyDob: Ember.computed('dob', function() {
     return moment(this.get('dob')).format('MM/DD/YYYY');
-  }.property('dob'),
+  }),
 
-  fullName: function() {
+  fullName: Ember.computed('first_name', 'last_name', 'nickname', 'middle_name', 'dob', function() {
     let nameParts = [];
     [
       'first_name', 'nickname',
@@ -31,5 +32,5 @@ export default DS.Model.extend({
 
     let fullName = nameParts.join(" ");
     return `${fullName} - ${this.get('prettyDob')}`;
-  }.property('first_name', 'last_name', 'nickname', 'middle_name', 'dob')
+  })
 });

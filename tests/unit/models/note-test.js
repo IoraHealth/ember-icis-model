@@ -1,8 +1,8 @@
-/* jshint expr:true */
 import Ember from 'ember';
 import { expect } from 'chai';
 import { describeModel, it } from 'ember-mocha';
-import { beforeEach } from 'mocha';
+import { beforeEach, describe } from 'mocha';
+import moment from 'moment';
 
 describeModel(
   'note',

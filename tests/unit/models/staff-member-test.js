@@ -1,8 +1,9 @@
-/* jshint expr:true */
 import {
   describeModel,
   it
 } from 'ember-mocha';
+import { describe, beforeEach } from 'mocha';
+import { expect } from 'chai';
 
 describeModel(
   'staff-member',

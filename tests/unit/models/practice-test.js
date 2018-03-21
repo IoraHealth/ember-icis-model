@@ -1,4 +1,3 @@
-/* jshint expr:true */
 import { expect } from 'chai';
 import {
   describeModel,
@@ -10,7 +9,7 @@ describeModel(
   'Practice',
   {
     // Specify the other units that are required for this test.
-    
+
   },
   function() {
     // Replace this with your real tests.
