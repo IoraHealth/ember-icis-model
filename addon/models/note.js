@@ -1,4 +1,6 @@
 import DS from "ember-data";
+import Ember from 'ember';
+import moment from 'moment';
 
 export default DS.Model.extend({
   body:                 DS.attr('string'),
@@ -22,7 +24,7 @@ export default DS.Model.extend({
   touch_point_type:     DS.attr('string'),
   touch_point_sub_type: DS.attr('string'),
 
-  status: function() {
+  status: Ember.computed('closed_date', function() {
     if (this.get('closed_date')) {
       return 'closed';
     } else {
@@ -35,18 +37,17 @@ export default DS.Model.extend({
         return 'pending';
       }
     }
-  }.property('closed_date'),
+  }),
 
-  closed: function() {
+  closed: Ember.computed('closed_date', function() {
     if (this.get('status') === 'closed') {
       return true;
     } else {
       return false;
     }
-  }.property('closed_date'),
+  }),
 
-  hasBeenUpdated: function() {
+  hasBeenUpdated: Ember.computed('created_at', 'updated_at', function() {
     return this.get('created_at').valueOf() !== this.get('updated_at').valueOf();
-  }.property('created_at', 'updated_at'),
-
+  })
 });
